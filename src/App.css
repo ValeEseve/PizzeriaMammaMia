@@ -7,19 +7,6 @@ h1 {
   padding: 0;
 }
 
-nav,
-#nav-left,
-header,
-#card-text,
-#card-btns,
-footer {
-  display: flex;
-}
-
-nav {
-  justify-content: space-between;
-}
-
 nav button {
   border-radius: 7px;
 }

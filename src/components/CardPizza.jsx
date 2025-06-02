@@ -9,7 +9,7 @@ const CardPizza = (props) => {
             <hr />
             <p>🍕 {props.ingredients?.join(", ") || "Ingredientes no disponibles"}</p>
             <hr />
-            <h4>Precio: ${props.price}</h4>
+            <h4>Precio: ${props.price.toLocaleString("es-CL")}</h4>
             <div class="card-btns d-flex justify-content-evenly mt-3 w-100">
             <button class="btn btn-light btn-outline-secondary ">Ver Más 👀</button>
             <button class="btn btn-dark">Añadir 🛒</button>
