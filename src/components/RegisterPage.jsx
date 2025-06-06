@@ -38,7 +38,7 @@ const RegisterPage = () => {
       if (!passwordIsValid) {return}
       const passwordsMatch = validatePasswordsMatch(password, confirmPassword)
       if (!passwordsMatch) {return}
-      alert("Login successful! Welcome back!")
+      alert("Welcome! Your account has been successfully registered!")
   
     }
     return (
