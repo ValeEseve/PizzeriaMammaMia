@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from "react"
 
 const RegisterPage = () => {
     const [email, setEmail] = useState("")
@@ -23,9 +23,12 @@ const RegisterPage = () => {
     }
 
     const validatePasswordsMatch = (password, confirmPassword) => {
-        if (password !=== confirmPassword){
-            
-        }}
+        if (password !== confirmPassword){
+            alert("Passwords do not match.")
+            return false
+        } else {
+            return true
+        }
     }
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -33,13 +36,15 @@ const RegisterPage = () => {
       if (!formIsValid) {return}
       const passwordIsValid = validatePassword(password)
       if (!passwordIsValid) {return}
-        alert("Login successful! Welcome back!")
+      const passwordsMatch = validatePasswordsMatch(password, confirmPassword)
+      if (!passwordsMatch) {return}
+      alert("Login successful! Welcome back!")
   
     }
     return (
       <section class="d-flex flex-column align-items-center justify-content-center vh-100 gap-4">
         <form action="submit" class="d-flex flex-column gap-3 w-25" onSubmit={handleSubmit}>
-          <h1>Login</h1>
+          <h1>Register new account</h1>
           <div class="d-flex flex-column gap-2">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} />
@@ -50,12 +55,12 @@ const RegisterPage = () => {
           </div>
           <div>
             <label htmlFor="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)} />
+            <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">Register</button>
         </form>
       </section>
   )
-}
 
+}
 export default RegisterPage
