@@ -3,6 +3,7 @@ import React from 'react'
 const RegisterPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
   
     const validateForm = (e) => {
       e.preventDefault()
@@ -19,6 +20,12 @@ const RegisterPage = () => {
         return false
       }
       return true
+    }
+
+    const validatePasswordsMatch = (password, confirmPassword) => {
+        if (password !=== confirmPassword){
+            
+        }}
     }
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -40,6 +47,10 @@ const RegisterPage = () => {
           <div>
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <div>
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)} />
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
