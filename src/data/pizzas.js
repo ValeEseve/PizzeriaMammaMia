@@ -73,6 +73,3 @@ export const pizzaCart = [
     img: "https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_com.jpg?alt=media&token=e7cde87a-08d5-4040-ac54-90f6c31eb3e3",
   },
 ];
-
-export default dataPizza
-export default pizzaCart

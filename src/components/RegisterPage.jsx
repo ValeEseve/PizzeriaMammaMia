@@ -42,10 +42,10 @@ const RegisterPage = () => {
   
     }
     return (
-      <section class="d-flex flex-column align-items-center justify-content-center vh-100 gap-4">
-        <form action="submit" class="d-flex flex-column gap-3 w-25" onSubmit={handleSubmit}>
+      <section className="d-flex flex-column align-items-center justify-content-center vh-100 gap-4">
+        <form action="submit" className="d-flex flex-column gap-3 w-25" onSubmit={handleSubmit}>
           <h1>Register new account</h1>
-          <div class="d-flex flex-column gap-2">
+          <div className="d-flex flex-column gap-2">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} />
           </div>
@@ -57,7 +57,7 @@ const RegisterPage = () => {
             <label htmlFor="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" className="btn btn-primary">Register</button>
         </form>
       </section>
   )

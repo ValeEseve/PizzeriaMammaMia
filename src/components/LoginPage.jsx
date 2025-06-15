@@ -30,10 +30,10 @@ const LoginPage = () => {
 
   }
   return (
-    <section class="d-flex flex-column align-items-center justify-content-center vh-100 gap-4">
-      <form action="submit" class="d-flex flex-column gap-3 w-25" onSubmit={handleSubmit}>
+    <section className="d-flex flex-column align-items-center justify-content-center vh-100 gap-4">
+      <form action="submit" className="d-flex flex-column gap-3 w-25" onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <div class="d-flex flex-column gap-2">
+        <div className="d-flex flex-column gap-2">
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} />
         </div>
@@ -41,7 +41,7 @@ const LoginPage = () => {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
     </section>
   )
