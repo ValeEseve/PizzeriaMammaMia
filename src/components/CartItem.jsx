@@ -7,7 +7,7 @@ const CartItem = ({pizza, inc, dec}) => {
                     <h5>{pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}</h5>
                 </div>
                 <div className="d-flex align-items-center gap-3">
-                    <h5 className="mb-0">${pizza.price.toLocaleString("es-CL")}</h5>
+                    <h5 className="mb-0">${(pizza.price*pizza.count).toLocaleString("es-CL")}</h5>
                     <button className="btn btn-outline-danger" onClick={() => dec(pizza.id)}>-</button>
                     <h5 className="mb-0">{pizza.count}</h5>
                     <button className="btn btn-outline-primary"onClick={() => inc(pizza.id)}>+</button>
