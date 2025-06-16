@@ -9,12 +9,14 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <>
-      <Navbar/>
-      <Cart/>
+      <Navbar />
+      <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <Cart />
+      </div>
       {/* <Home/> */}
       {/* <RegisterPage/> */}
       {/* <LoginPage/> */}
-      <Footer/>
+      <Footer />
     </>
   )
 }

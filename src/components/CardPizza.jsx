@@ -4,14 +4,14 @@ const CardPizza = (props) => {
       <div className="card">
         <img src={props.pizza.img} className="card-img-top" alt={`Pizza ${props.pizza.name}`} />
         <div className="card-body">
-          <h5 className="card-title text-center">Pizza {props.pizza.name}</h5>
+          <h4 className="card-title text-center">Pizza {props.pizza.name}</h4>
           <div className="card-text d-flex flex-column"><hr /><h6 className="text-center">Ingredientes</h6>
             <hr />
-            <ul>
-              {props.pizza.ingredients.map(ing => (<li>🍕 {ing} </li> ))}
+            <ul className="list-group list-group-flush">
+              {props.pizza.ingredients.map(ing => (<li className="list-group-item">🍕 {ing} </li> ))}
             </ul>
             <hr />
-            <h4 className="text-center">Precio: ${props.pizza.price.toLocaleString("es-CL")}</h4>
+            <h5 className="text-center">Precio: ${props.pizza.price.toLocaleString("es-CL")}</h5>
             <div className="card-btns d-flex justify-content-evenly mt-3 w-100">
               <button className="btn btn-light btn-outline-secondary ">Ver Más 👀</button>
               <button className="btn btn-dark">Añadir 🛒</button>
