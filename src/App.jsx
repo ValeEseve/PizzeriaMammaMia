@@ -3,6 +3,7 @@ import Cart from './components/Cart'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import Pizza from './components/Pizza'
 // import LoginPage from './components/LoginPage'
 // import RegisterPage from './components/RegisterPage'
 
@@ -13,7 +14,8 @@ function App() {
       {/* <div className="container d-flex justify-content-center align-items-center min-vh-100">
         <Cart />
       </div> */}
-      <Home/>
+      {/* <Home/> */}
+      <Pizza/>
       {/* <RegisterPage/> */}
       {/* <LoginPage/> */}
       <Footer />
