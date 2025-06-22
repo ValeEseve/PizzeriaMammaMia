@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container d-flex justify-content-center align-items-center min-vh-100">
+      {/* <div className="container d-flex justify-content-center align-items-center min-vh-100">
         <Cart />
-      </div>
-      {/* <Home/> */}
+      </div> */}
+      <Home/>
       {/* <RegisterPage/> */}
       {/* <LoginPage/> */}
       <Footer />
