@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Cart from './components/Cart'
+import CartPage from './pages/CartPage'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import Navbar from './components/Navbar'
-import Pizza from './components/Pizza'
+import PizzaPage from './pages/PizzaPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ProfilePage from './pages/ProfilePage'
@@ -19,8 +19,8 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/pizza/p001' element={<Pizza />} />
+        <Route path='/cart' element={<CartPage />} />
+        <Route path='/pizza/p001' element={<PizzaPage />} />
         <Route path='/404' element={<NotFoundPage />} />
       </Routes>
       <Footer />

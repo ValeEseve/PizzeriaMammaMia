@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { pizzaCart as initialCart } from "../data/pizzas"
-import CartItem from "./CartItem"
+import CartItem from "../components/CartItem"
 
 const Cart = () => {
     const [cart, setCart] = useState(initialCart)
