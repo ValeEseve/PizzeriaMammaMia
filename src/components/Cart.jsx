@@ -19,6 +19,7 @@ const Cart = () => {
     console.log("CARRITO ACTUAL:", cart);
 
     return (
+        <div className="container d-flex justify-content-center align-items-center min-vh-100">
         <section className="w-100" style={{ maxWidth: "700px" }}>
             <h2 className="mb-4">Detalles del pedido:</h2>
             <article className="d-flex flex-column gap-4">
@@ -32,6 +33,7 @@ const Cart = () => {
                 <button className="btn btn-dark mt-3">Pagar</button>
             </div>
         </section>
+        </div>
     )
 }
 
