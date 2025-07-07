@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../context/CartContext'
 
 const Pizza = () => {
   const [pizza, setPizza] = useState(null)
   const [ingr, setIngr] = useState([])
 
-  const fetchPizza = async () => {
-    try {
-      const url = "http://localhost:5000/api/pizzas/p001"
-      const response = await fetch(url)
-      const data = await response.json()
-      setPizza(data)
-      setIngr(data.ingredients)
-    } catch (err) {
-      console.error("Error al obtener la pizza:", err)
-    }
-  }
+  const {addPizza, removePizza} = useContext(CartContext)
+  // const fetchPizza = async () => {
+  //   try {
+  //     const url = "http://localhost:5000/api/pizzas/p001"
+  //     const response = await fetch(url)
+  //     const data = await response.json()
+  //     setPizza(data)
+  //     setIngr(data.ingredients)
+  //   } catch (err) {
+  //     console.error("Error al obtener la pizza:", err)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchPizza()
-  }, [])
+  // useEffect(() => {
+  //   fetchPizza()
+  // }, [])
 
   if (!pizza) {
     return <p className="text-center mt-5">Cargando pizza...</p>
@@ -43,7 +45,7 @@ const Pizza = () => {
         </ul>
         <div className='d-flex justify-content-between p-4'>
           <h2>Precio: ${pizza.price.toLocaleString("es-CL")}</h2>
-          <button className='btn btn-dark'>Agregar al carrito 🛒</button>
+          <button onClick={addPizza} className='btn btn-dark'>Agregar al carrito 🛒</button>
         </div>
       </div>
     </section>

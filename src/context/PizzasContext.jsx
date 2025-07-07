@@ -14,8 +14,7 @@ const PizzasProvider = ({children}) => {
     
       useEffect(() => {
         fetchApi()
-        console.log(pizzas)
-      })
+      },[])
 
     return(
         <PizzasContext.Provider value={{pizzas, setPizzas}}>
