@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { PizzasContext } from "./PizzasContext";
 
 export const CartContext = createContext();
@@ -6,10 +6,10 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const { pizzas } = useContext(PizzasContext);
   const [cart, setCart] = useState([]);
-  let [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(0)
 
   const totalCart = () => {
-    let totalCart = cart.reduce((acc, p) => acc + p.price * p.count, 0).toLocaleString("es-CL")
+    let totalCart = cart.reduce((acc, p) => acc + p.price * p.count, 0)
     setTotal(totalCart)
     console.log(cart)
   }
@@ -23,10 +23,8 @@ const CartProvider = ({ children }) => {
     if (pizzaInCart) {
       const updatedCart = cart.map((pizza) =>
         pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza);
-      totalCart()
       setCart(updatedCart);
     } else {
-      totalCart()
       setCart([...cart, { ...selectedPizza, count: 1 }]);
     }
   };
@@ -40,7 +38,9 @@ const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
-
+   useEffect(() => {
+    totalCart();
+  }, [cart]);
 
   return (
     <CartContext.Provider value={{ cart, addPizza, removePizza, total, setTotal }}>
