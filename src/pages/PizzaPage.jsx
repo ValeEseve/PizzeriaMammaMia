@@ -1,27 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
+import { useParams } from 'react-router-dom';
+import { PizzasContext } from '../context/PizzasContext';
 
-const Pizza = () => {
-  const [pizza, setPizza] = useState(null)
-  const [ingr, setIngr] = useState([])
+const Pizza = (props) => {
+  const { id } = useParams();
 
-  const {addPizza, removePizza} = useContext(CartContext)
-  // const fetchPizza = async () => {
-  //   try {
-  //     const url = "http://localhost:5000/api/pizzas/p001"
-  //     const response = await fetch(url)
-  //     const data = await response.json()
-  //     setPizza(data)
-  //     setIngr(data.ingredients)
-  //   } catch (err) {
-  //     console.error("Error al obtener la pizza:", err)
-  //   }
-  // }
+  const {pizzas} = useContext(PizzasContext)
 
-  // useEffect(() => {
-  //   fetchPizza()
-  // }, [])
+  const { addPizza } = useContext(CartContext)
 
+    const pizza = pizzas.find((p) => p.id === id);
+  
   if (!pizza) {
     return <p className="text-center mt-5">Cargando pizza...</p>
   }
@@ -39,13 +29,13 @@ const Pizza = () => {
         <p className='mt-4'>{pizza.desc}</p>
         <h3>Ingredientes</h3>
         <ul className="list-group list-group-flush">
-          {ingr.map((ing, i) => (
+          {pizza.ingredients.map((ing, i) => (
             <li className="list-group-item" key={i}>🍕 {ing} </li>
           ))}
         </ul>
         <div className='d-flex justify-content-between p-4'>
           <h2>Precio: ${pizza.price.toLocaleString("es-CL")}</h2>
-          <button onClick={addPizza} className='btn btn-dark'>Agregar al carrito 🛒</button>
+          <button onClick={() => addPizza(pizza.id)}  className='btn btn-dark'>Agregar al carrito 🛒</button>
         </div>
       </div>
     </section>

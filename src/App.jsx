@@ -20,7 +20,7 @@ function App() {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/cart' element={<CartPage />} />
-        <Route path='/pizza/p001' element={<PizzaPage />} />
+        <Route path='/pizza/:id' element={<PizzaPage />} />
         <Route path='/404' element={<NotFoundPage />} />
       </Routes>
       <Footer />

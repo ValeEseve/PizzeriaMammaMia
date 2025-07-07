@@ -19,7 +19,7 @@ const CardPizza = (props) => {
             <hr />
             <h5 className="text-center">Precio: ${props.pizza.price.toLocaleString("es-CL")}</h5>
             <div className="card-btns d-flex justify-content-evenly mt-3 w-100">
-              <Link to="/pizza/p001"> <button className="btn btn-light btn-outline-secondary ">Ver Más 👀</button> </Link>
+              <Link to={`/pizza/${props.pizza.id}`}> <button className="btn btn-light btn-outline-secondary ">Ver Más 👀</button> </Link>
               <button onClick={() => addPizza(props.pizza.id)} className="btn btn-dark">Añadir 🛒</button>
             </div>
           </div>
