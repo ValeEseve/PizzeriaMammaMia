@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import CartItem from "../components/CartItem"
+import { UserContext } from "../context/UserContext";
 
 const Cart = () => {
     const { cart, addPizza, removePizza } = useContext(CartContext)
+    const {token} = useContext(UserContext)
 
     return (
         <div className="container d-flex justify-content-center align-items-center min-vh-100">
