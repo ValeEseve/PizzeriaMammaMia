@@ -19,7 +19,11 @@ const Cart = () => {
 
                 <div className="mt-5">
                     <h4>Total: <strong>${cart.reduce((acc, p) => acc + p.price * p.count, 0).toLocaleString("es-CL")}</strong></h4>
-                    <button className="btn btn-dark mt-3">Pagar</button>
+                    
+                    <button disabled={!token} className={`btn btn-dark mt-3 ${
+          !token ? "opacity-50 cursor-not-allowed" : ""
+        }`}>Pagar</button>
+         {!token && <p className="mt-2 text-red-500">Inicia sesión para pagar.</p>}
                 </div>
             </section>
         </div>
