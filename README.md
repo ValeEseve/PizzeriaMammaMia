@@ -1,6 +1,25 @@
-# Hitos Pizzería Mamma Mía! 🍕
+# Práctica React
 
-* ✅ Hito 1 https://github.com/ValeEseve/PizzeriaMammaMia/tree/25a5175b42a5537c0e88cc759c3d56bec445d344
-* ✅ Hito 2 https://github.com/ValeEseve/PizzeriaMammaMia/tree/b85d9c34c5323f937086052d71340c9eda930522
-* ✅ Hito 3 https://github.com/ValeEseve/PizzeriaMammaMia/tree/0156fd62b1edd01a10f78bfa9be2c8b0bf0a5cd6
-* ✅ Hito 4 https://github.com/ValeEseve/PizzeriaMammaMia/tree/588c720d2c5b9205737c0234d5bcb209635a51fd
+### Aprendizajes obtenidos
+
+- Uso de hooks useState, useEffect, useNavigate, useContext para manejo de estado, efectos, navegación y contexto global.
+
+- Implementación y consumo de APIs REST con fetch para login, registro, obtención de perfil y envío de carrito.
+
+- Gestión de autenticación mediante tokens JWT: almacenamiento seguro en localStorage, envío en headers Authorization.
+
+- Uso de React Router Dom para navegación entre páginas y rutas protegidas.
+
+- Aplicación de Bootstrap para diseño responsive y componentes visuales (nav-tabs, cards, formularios).
+
+- Manejo de formularios controlados en React y validaciones básicas.
+
+- Estrategias para manejo de estados globales con Context API para usuarios autenticados.
+
+- Control de flujo asíncrono con async/await y manejo de errores en peticiones HTTP.
+
+- Incorporación de redirecciones programáticas tras acciones (login, logout, registro) con useNavigate.
+
+- Buenas prácticas para estructura de proyecto React: separación de componentes, contextos y rutas.
+
+- Depuración básica de errores comunes en frontend-backend (CORS, tokens, formatos JSON).
