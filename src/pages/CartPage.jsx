@@ -4,7 +4,7 @@ import CartItem from "../components/CartItem"
 import { UserContext } from "../context/UserContext";
 
 const Cart = () => {
-    const { cart, addPizza, removePizza } = useContext(CartContext)
+    const { cart, addPizza, removePizza, sendCart } = useContext(CartContext)
     const {token} = useContext(UserContext)
 
     return (
@@ -20,7 +20,7 @@ const Cart = () => {
                 <div className="mt-5">
                     <h4>Total: <strong>${cart.reduce((acc, p) => acc + p.price * p.count, 0).toLocaleString("es-CL")}</strong></h4>
                     
-                    <button disabled={!token} className={`btn btn-dark mt-3 ${
+                    <button onClick={sendCart} disabled={!token} className={`btn btn-dark mt-3 ${
           !token ? "opacity-50 cursor-not-allowed" : ""
         }`}>Pagar</button>
          {!token && <p className="mt-2 text-red-500">Inicia sesión para pagar.</p>}

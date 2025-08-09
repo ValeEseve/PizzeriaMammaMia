@@ -1,13 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../context/UserContext"
 
 const LoginPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { login } = useContext(UserContext)
 
   const validateForm = (e) => {
     e.preventDefault()
     if (!email.trim() || !password.trim()) {
-      alert("Please fill in all fields.")
+      alert("Por favor, rellena todos los campos requeridos.")
       return false
     }
     return true
@@ -15,7 +17,7 @@ const LoginPage = () => {
 
   const validatePassword = (password) => {
     if (password.length < 6) {
-      alert("Password must be at least 6 characters long.")
+      alert("La clave debe ser de al menos 6 caracteres.")
       return false
     }
     return true
@@ -23,10 +25,10 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const formIsValid = validateForm(e)
-    if (!formIsValid) {return}
+    if (!formIsValid) { return }
     const passwordIsValid = validatePassword(password)
-    if (!passwordIsValid) {return}
-      alert("Login successful! Welcome back!")
+    if (!passwordIsValid) { return }
+    login(email, password)
 
   }
   return (

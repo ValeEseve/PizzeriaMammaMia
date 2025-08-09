@@ -14,7 +14,7 @@ const CardPizza = (props) => {
           <div className="card-text d-flex flex-column"><hr /><h6 className="text-center">Ingredientes</h6>
             <hr />
             <ul className="list-group list-group-flush">
-              {props.pizza.ingredients.map(ing => (<li className="list-group-item">🍕 {ing} </li> ))}
+              {props.pizza.ingredients.map(ing => (<li key={ing} className="list-group-item">🍕 {ing} </li> ))}
             </ul>
             <hr />
             <h5 className="text-center">Precio: ${props.pizza.price.toLocaleString("es-CL")}</h5>

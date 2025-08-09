@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../context/UserContext"
 
 const RegisterPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-  
+    const {register} = useContext(UserContext)
+
     const validateForm = (e) => {
       e.preventDefault()
       if (!email.trim() || !password.trim()) {
@@ -24,7 +26,7 @@ const RegisterPage = () => {
 
     const validatePasswordsMatch = (password, confirmPassword) => {
         if (password !== confirmPassword){
-            alert("Passwords do not match.")
+            alert("Las contraseñas no coinciden")
             return false
         } else {
             return true
@@ -38,7 +40,8 @@ const RegisterPage = () => {
       if (!passwordIsValid) {return}
       const passwordsMatch = validatePasswordsMatch(password, confirmPassword)
       if (!passwordsMatch) {return}
-      alert("Welcome! Your account has been successfully registered!")
+      register(email, password)
+      alert("Bienvenid@, tu cuenta ha sido creada!")
   
     }
     return (

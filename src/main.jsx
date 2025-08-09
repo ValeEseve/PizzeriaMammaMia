@@ -9,14 +9,14 @@ import UserProvider from './context/UserContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PizzasProvider>
-      <CartProvider>
+    <BrowserRouter>
+      <PizzasProvider>
         <UserProvider>
-          <BrowserRouter>
+          <CartProvider>
             <App />
-          </BrowserRouter>
+          </CartProvider>
         </UserProvider>
-      </CartProvider>
-    </PizzasProvider>
+      </PizzasProvider>
+    </BrowserRouter>
   </StrictMode>,
 )

@@ -1,10 +1,12 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { PizzasContext } from "./PizzasContext";
+import { UserContext } from "./UserContext";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const { pizzas } = useContext(PizzasContext);
+  const { pizzas } = useContext(PizzasContext)
+  const { token } = useContext(UserContext)
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
 
@@ -38,12 +40,38 @@ const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
-   useEffect(() => {
-    totalCart();
-  }, [cart]);
+  const sendCart = async () => {
+    const url = "http://localhost:5000/api/checkouts";
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ cart }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        alert("Compra realizada con éxito")
+        setCart([])
+      } else {
+        alert(data.error || "Error al procesar la compra")
+      }
+    } catch (error) {
+      console.error("Error enviando carrito:", error);
+      alert("Error en la conexión con el servidor");
+    }
+  };
+
+  useEffect(() => {
+    totalCart()
+  }, [cart])
 
   return (
-    <CartContext.Provider value={{ cart, addPizza, removePizza, total, setTotal }}>
+    <CartContext.Provider value={{ cart, addPizza, removePizza, total, setTotal, sendCart }}>
       {children}
     </CartContext.Provider>
   );
